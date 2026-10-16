@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080d1a" />
+  <meta name="description" content="Demo visual del proyecto escolar Brazalete Deportivo Inteligente." />
+  <title>Brazalete Deportivo Inteligente | Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Inicio">
+      <span class="brand-mark"><span></span><span></span><span></span></span>
+      <span class="brand-copy"><strong>BRAZALETE</strong><small>DEPORTIVO INTELIGENTE</small></span>
+    </a>
+    <div class="topbar-right">
+      <span class="demo-pill"><span class="pulse-dot"></span> DEMOSTRACIÓN</span>
+      <div class="clock-block"><span id="clock">--:--:--</span><small>HORA LOCAL</small></div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> TECNOLOGÍA · MOVIMIENTO · AMBIENTE</div>
+        <h1>CONOCÉ TU<br><span>RENDIMIENTO.</span></h1>
+        <p>Una plataforma experimental para explorar cómo los datos corporales y las condiciones ambientales pueden visualizarse en un mismo lugar.</p>
+        <div class="hero-status"><span class="status-icon">✓</span><span><strong>Modo demo activo</strong><small>Valores simulados para la muestra escolar</small></span></div>
+      </div>
+      <div class="hero-visual" aria-label="Ilustración decorativa de pulso">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="core-ring"><div class="core-heart">♥</div></div>
+        <svg class="hero-wave" viewBox="0 0 420 100" preserveAspectRatio="none" aria-hidden="true">
+          <polyline points="0,54 60,54 78,51 91,59 105,53 122,54 143,54 158,54 173,18 188,83 204,38 220,55 249,54 274,54 291,52 309,58 325,54 420,54" />
+        </svg>
+        <div class="visual-tag tag-top"><span class="mini-dot cyan"></span> BIOMETRÍA</div>
+        <div class="visual-tag tag-bottom"><span class="mini-dot violet"></span> DATOS AMBIENTALES</div>
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div><span class="section-index">01 /</span><h2>MONITOREO <span>EN TIEMPO REAL</span></h2></div>
+      <div class="section-note"><span class="live-indicator"></span> ACTUALIZACIÓN SIMULADA</div>
+    </section>
+
+    <section class="metrics-grid">
+      <article class="metric-card card-cyan">
+        <div class="card-top"><span class="metric-icon">♥</span><span class="metric-category">BIOMETRÍA</span><span class="card-menu">•••</span></div>
+        <div class="metric-label">Frecuencia cardíaca</div>
+        <div class="metric-reading"><strong id="pulseValue">78</strong><span>lpm</span></div>
+        <div class="metric-foot"><span class="trend trend-up">↗ <b id="pulseDelta">+2</b></span><span>latidos por minuto</span></div>
+        <div class="sparkline"><canvas id="pulseSpark" aria-label="Tendencia reciente de pulso"></canvas></div>
+      </article>
+      <article class="metric-card card-violet">
+        <div class="card-top"><span class="metric-icon">◉</span><span class="metric-category">OXIGENACIÓN</span><span class="card-menu">•••</span></div>
+        <div class="metric-label">Saturación de oxígeno</div>
+        <div class="metric-reading"><strong id="spo2Value">98</strong><span>% SpO₂</span></div>
+        <div class="metric-foot"><span class="trend trend-steady">● <b id="spo2State">Estable</b></span><span>lectura experimental</span></div>
+        <div class="gauge-wrap"><div class="gauge"><div class="gauge-inner"><strong id="spo2Gauge">98%</strong><small>SpO₂</small></div></div></div>
+      </article>
+      <article class="metric-card card-orange">
+        <div class="card-top"><span class="metric-icon">♨</span><span class="metric-category">TEMPERATURA</span><span class="card-menu">•••</span></div>
+        <div class="metric-label">Temperatura corporal</div>
+        <div class="metric-reading"><strong id="bodyTempValue">36.6</strong><span>°C</span></div>
+        <div class="metric-foot"><span class="trend trend-steady">● <b>Demo</b></span><span>sensor corporal previsto</span></div>
+        <div class="temp-scale"><span>35°</span><div class="scale-track"><span id="bodyTempMarker"></span></div><span>40°</span></div>
+      </article>
+    </section>
+
+    <section class="section-heading environment-heading">
+      <div><span class="section-index">02 /</span><h2>ESTACIÓN <span>METEOROLÓGICA</span></h2></div>
+      <div class="section-note">CONDICIONES DEL ENTORNO</div>
+    </section>
+
+    <section class="environment-grid">
+      <article class="environment-card">
+        <div class="env-top"><span class="env-icon humidity-icon">◌</span><span class="env-label">HUMEDAD AMBIENTE</span></div>
+        <div class="env-reading"><strong id="humidityValue">54</strong><span>%</span></div>
+        <div class="env-bottom"><span class="env-bar"><span id="humidityBar"></span></span><span>Humedad relativa</span></div>
+      </article>
+      <article class="environment-card">
+        <div class="env-top"><span class="env-icon temperature-icon">♨</span><span class="env-label">TEMPERATURA AMBIENTE</span></div>
+        <div class="env-reading"><strong id="ambientTempValue">24.8</strong><span>°C</span></div>
+        <div class="env-bottom"><span class="env-mini-chart" id="ambientMini"></span><span>Variación ambiental</span></div>
+      </article>
+      <article class="environment-card">
+        <div class="env-top"><span class="env-icon altitude-icon">↟</span><span class="env-label">ALTITUD</span></div>
+        <div class="env-reading"><strong id="altitudeValue">842</strong><span>m</span></div>
+        <div class="env-bottom"><span class="env-tag">REFERENCIA SIMULADA</span></div>
+      </article>
+      <article class="environment-card">
+        <div class="env-top"><span class="env-icon pressure-icon">⌁</span><span class="env-label">PRESIÓN ATMOSFÉRICA</span></div>
+        <div class="env-reading"><strong id="pressureValue">914</strong><span>hPa</span></div>
+        <div class="env-bottom"><span class="env-tag">REFERENCIA SIMULADA</span></div>
+      </article>
+    </section>
+
+    <section class="section-heading history-heading">
+      <div><span class="section-index">03 /</span><h2>HISTORIAL <span>DE DATOS</span></h2></div>
+      <div class="chart-controls" role="group" aria-label="Rango temporal del gráfico">
+        <button class="range-btn active" data-range="12">12 puntos</button>
+        <button class="range-btn" data-range="20">20 puntos</button>
+        <button class="range-btn" data-range="30">30 puntos</button>
+      </div>
+    </section>
+
+    <section class="charts-grid">
+      <article class="chart-card chart-wide">
+        <div class="chart-card-header"><div><span class="chart-kicker">BIOMETRÍA</span><h3>Respuesta corporal</h3></div><span class="chart-legend"><i class="legend-cyan"></i>Pulso <i class="legend-violet"></i>SpO₂</span></div>
+        <div class="chart-canvas"><canvas id="bioChart" aria-label="Gráfico histórico de pulso y saturación"></canvas></div>
+      </article>
+      <article class="chart-card">
+        <div class="chart-card-header"><div><span class="chart-kicker">AMBIENTE</span><h3>Temperatura y humedad</h3></div><span class="chart-legend"><i class="legend-orange"></i>°C <i class="legend-green"></i>%</span></div>
+        <div class="chart-canvas"><canvas id="envChart" aria-label="Gráfico histórico de temperatura y humedad ambiental"></canvas></div>
+      </article>
+    </section>
+
+    <section class="system-panel">
+      <div class="system-copy"><span class="section-index">04 /</span><div><h2>ARQUITECTURA DEL SISTEMA</h2><p>Así viajan los datos en la versión experimental.</p></div></div>
+      <div class="flow">
+        <div class="flow-node"><span class="flow-symbol">⌁</span><strong>SENSORES</strong><small>MAX30102 · DHT22</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><span class="flow-symbol">▦</span><strong>ESP32-C3</strong><small>Lectura de señales</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><span class="flow-symbol">⌁</span><strong>WI-FI</strong><small>Transmisión de datos</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node flow-node-active"><span class="flow-symbol">▣</span><strong>PLATAFORMA</strong><small>Visualización web</small></div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <span class="notice-icon">i</span>
+      <div><strong>Importante: demostración educativa</strong><p>Esta beta muestra valores generados automáticamente para simular la interfaz. No son mediciones reales ni deben utilizarse para evaluar la salud o el rendimiento de una persona. La temperatura corporal, altitud y presión se incluyen como ejemplos visuales de la plataforma prevista.</p></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-brand"><span class="brand-mark small"><span></span><span></span><span></span></span><strong>BRAZALETE DEPORTIVO INTELIGENTE</strong></div>
+      <span>PROTOTIPO EDUCATIVO · BETA VISUAL</span>
+      <span>© <span id="year"></span></span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
